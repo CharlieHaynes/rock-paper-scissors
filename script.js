@@ -20,6 +20,8 @@ function playRound(playerSelection, computerSelection) {
     computerSelection === choices[0]
   ) {
     return "Computer wins this round!";
+  } else if (playerSelection === computerSelection) {
+    return "This round is a draw!";
   } else {
     return "You win this round!";
   }
