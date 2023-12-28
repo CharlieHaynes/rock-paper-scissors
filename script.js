@@ -4,6 +4,20 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
 }
 
+function getPlayerChoice() {
+  let playerChoice = prompt("Choose: rock, paper or scissors!");
+  if (
+    playerChoice.toLowerCase() !== choices[0] &&
+    playerChoice.toLowerCase() !== choices[1] &&
+    playerChoice.toLowerCase() !== choices[2]
+  ) {
+    alert("You typed a choice wrong, please try again!");
+    getPlayerChoice();
+  } else {
+    return playerChoice;
+  }
+}
+
 function playRound(playerSelection, computerSelection) {
   if (
     playerSelection.toLowerCase() === choices[0] &&
@@ -27,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = "rock";
+const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
 console.log("You chose: " + playerSelection);
 console.log("The computer chose: " + computerSelection);
