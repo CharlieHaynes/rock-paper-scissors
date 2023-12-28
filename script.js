@@ -1,4 +1,6 @@
 let choices = ["rock", "paper", "scissors"];
+let playerWin = 0;
+let computerWin = 0;
 
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
@@ -44,8 +46,23 @@ function game() {
     const computerSelection = getComputerChoice();
     console.log("You chose: " + playerSelection);
     console.log("The computer chose: " + computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    let roundWinner = playRound(playerSelection, computerSelection);
+    console.log(roundWinner);
+    console.log(" ");
+    if (roundWinner === "You win this round!") {
+      playerWin++;
+    } else if (roundWinner === "Computer wins this round!") {
+      computerWin++;
+    }
   }
 }
 
 game();
+
+if (playerWin > computerWin) {
+  console.log(`You win! With a score of ${playerWin} to ${computerWin}.`);
+} else if (computerWin > playerWin) {
+  console.log(`Computer won! With a score of ${computerWin} to ${playerWin}.`);
+} else {
+  console.log(`Draw! With a score of ${playerWin} to ${computerWin}.`);
+}
