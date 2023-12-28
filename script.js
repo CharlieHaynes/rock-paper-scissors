@@ -24,3 +24,9 @@ function playRound(playerSelection, computerSelection) {
     return "You win this round!";
   }
 }
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log("You chose: " + playerSelection);
+console.log("The computer chose: " + computerSelection);
+console.log(playRound(playerSelection, computerSelection));
